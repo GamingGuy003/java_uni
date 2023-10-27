@@ -66,20 +66,20 @@ public class TestVars {
         int age = sc.nextInt(); // we are reading the users input as an integer
         System.out.println("So, you are " + age + " years old"); //printing out the age
 
-//        System.out.print("Enter your age: ");
-//        int age_new = sc.nextInt();
-//        System.out.print("Enter your height (cm): ");
-//        int height = sc.nextInt();
-//        System.out.print("Enter your weight (kg): ");
-//        int weight = sc.nextInt();
-//        System.out.print("Enter your first initial: ");
-//        char init1 = sc.next().charAt(0);
-//        System.out.print("Enter your second initial: ");
-//        char init2 = sc.next().charAt(0);
-//        System.out.print("Enter your address: ");
-//        String address = sc.next();
-//        // String address = sc.nextLine(); // This line for some reason does not seem to wait for the users input?
-//        System.out.println("age = " + age_new + ", height = " + height + ", weight = " + weight + ", initials = " + init1 + ", " + init2 + ", address = " + address);
+        System.out.print("Enter your age: ");
+        int age_new = sc.nextInt();
+        System.out.print("Enter your height (cm): ");
+        int height = sc.nextInt();
+        System.out.print("Enter your weight (kg): ");
+        int weight = sc.nextInt();
+        System.out.print("Enter your first initial: ");
+        char init1 = sc.next().charAt(0);
+        System.out.print("Enter your second initial: ");
+        char init2 = sc.next().charAt(0);
+        System.out.print("Enter your address: ");
+        String address = sc.next();
+        // String address = sc.nextLine(); // This line for some reason does not seem to wait for the users input?
+        System.out.println("age = " + age_new + ", height = " + height + ", weight = " + weight + ", initials = " + init1 + ", " + init2 + ", address = " + address);
 
         // 6a)
         // a 5
