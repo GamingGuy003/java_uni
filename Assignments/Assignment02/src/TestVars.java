@@ -76,9 +76,10 @@ public class TestVars {
         char init1 = sc.next().charAt(0);
         System.out.print("Enter your second initial: ");
         char init2 = sc.next().charAt(0);
+        sc.nextLine(); // Necessary to consume the newline of the initials, otherwise sc.nextLine() will not wait for input
         System.out.print("Enter your address: ");
-        String address = sc.next();
-        // String address = sc.nextLine(); // This line for some reason does not seem to wait for the users input?
+        // String address = sc.next(); // Does not accept spaces in the address
+        String address = sc.nextLine();
         System.out.println("age = " + age_new + ", height = " + height + ", weight = " + weight + ", initials = " + init1 + ", " + init2 + ", address = " + address);
 
         // 6a)
