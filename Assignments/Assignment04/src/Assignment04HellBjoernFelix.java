@@ -120,7 +120,7 @@ class GuessName {
 
 class NameGenerator {
     public String generateName() {
-        int length = new Random().nextInt(2, 12);
+        int length = new Random().nextInt(2, 13);
         // counts consecutive consonants
         int consonantCount = 0;
         String name = "";
@@ -139,7 +139,7 @@ class NameGenerator {
         consonants.removeAll(vowels);
 
         for (int i = 0; i < length;) {
-            Character letter = alphabet.get(new Random().nextInt(0, alphabet.size() - 1));
+            Character letter = alphabet.get(new Random().nextInt(0, alphabet.size()));
             // increment consecutive consonants or reset of letter was not a consonant
             if (consonants.contains(letter)) {
                 consonantCount++;

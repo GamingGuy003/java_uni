@@ -1,6 +1,4 @@
-import javax.swing.text.Style;
 import java.text.SimpleDateFormat;
-import java.time.DayOfWeek;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -12,11 +10,11 @@ public class Assignment05HellBjoernFelix {
         // in.infiniteWhile("Hell Björn Felix");
 
         Scanner sc = new Scanner(System.in);
-        //System.out.print("Day: ");
-        //new WeekJokes().tellJoke(sc.nextLine());
+        System.out.print("Day: ");
+        new WeekJokes().tellJoke(sc.nextLine());
 
-        //System.out.print("Date: (dd.mm.yyyy) ");
-        //new DateJoke().dateJoke(sc.nextLine());
+        System.out.print("Date: (dd.mm.yyyy) ");
+        new DateJoke().dateJoke(sc.nextLine());
         String[] strings = {};
         new OnlineOrder().mainMenu(sc);
     }
@@ -113,7 +111,7 @@ class WeekJokes {
                 }
         };
 
-        return jokes[weekday][new Random().nextInt(2)];
+        return jokes[weekday][new Random().nextInt(3)];
     }
 }
 
@@ -126,6 +124,7 @@ class DateJoke {
         } catch (Exception e) {
             System.out.println("Invalid date input, could not parse: " + e);
         }
+
     }
 
     String intToWeekday(int number) {
