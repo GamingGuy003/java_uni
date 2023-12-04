@@ -277,7 +277,7 @@ class OnlineOrder {
                 System.out.println("Purchase declined!");
                 System.exit(0);
             }
-            case "Back" -> {
+            case "Purchase" -> {
                 System.out.println("Thank you for your purchase!");
                 System.exit(0);
             }
