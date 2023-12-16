@@ -1,15 +1,12 @@
 import java.util.Scanner;
 
-import static java.lang.Integer.parseInt;
+class MultiplicationTable {
 
-public class Main {
     public static void main(String[] args) {
         MultiplicationTable mt = new MultiplicationTable();
         mt.run();
     }
-}
 
-class MultiplicationTable {
     int[][] table;
     int n, m;
     MultiplicationTable() {
