@@ -175,7 +175,7 @@ class GuessGame {
                         System.out.println("'!new': Start over a new game"); // done
                         System.out.println("'!help': Show this help prompt"); // done
                         System.out.println("'!buy': Reveals one character at a cost of 5 tries"); // done
-                        System.out.println("'!h': Shows history of all guesses and evaluations");
+                        System.out.println("'!h': Shows history of all guesses and evaluations"); // done
                         System.out.println("'!r': (Debug) reveals secret code"); //done
                         System.out.println("'!p': (Debug) presets the secret code just like config > preset"); // done
                         System.out.println("'!quit': Reveal the solution and quit the game"); // done
