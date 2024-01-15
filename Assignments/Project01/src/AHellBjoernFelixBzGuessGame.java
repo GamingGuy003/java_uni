@@ -21,9 +21,7 @@ class GuessGame {
 
     // the secret code
     String code = "";
-
     int maxTries = 20;
-
     String history = "";
 
     Scanner sc = new Scanner(System.in);
@@ -49,6 +47,7 @@ class GuessGame {
         }
     }
 
+    // main loop
     void run() {
         System.out.println("Welcome to the BzGuessGame!");
         while (true) {
@@ -57,6 +56,7 @@ class GuessGame {
 
     }
 
+    // main menu to let the user configure or play the game
     void mainMenu() {
         String[] entries = {
                 "play",
@@ -64,18 +64,16 @@ class GuessGame {
                 "quit",
         };
         switch (getUserChoice(entries)) {
-            case "play" -> {
-                gameLoop();
-            }
-            case "config" -> {
-                configure();
-            }
+            case "play" -> gameLoop();
+            case "config" -> configure();
             case "quit" -> {
+                System.out.println("Quitting...");
                 System.exit(0);
             }
         }
     }
 
+    // configure menu for debugging and other options like setting custom code length or characters
     void configure() {
         System.out.println("Mostly experimental, be careful here");
         String[] entries = {
@@ -86,8 +84,10 @@ class GuessGame {
                 "back"
         };
 
+        // switches between the different actions
         switch (getUserChoice(entries)) {
             case "length" -> {
+                // runs until the input is valid
                 while (true) {
                     System.out.print("Input the length of the generated code (current is " + this.codeLength + "): ");
                     this.codeLength = readNumber();
@@ -98,8 +98,10 @@ class GuessGame {
                 }
             }
             case "valid chars" -> {
+                // runs until the input is valid
                 while (true) {
                     System.out.print("Input characters that can be used for code generation as a single string with no spaces: ");
+                    // removes whitespaces since they should not be used as characters for the game
                     this.chars = sc.nextLine().trim().replace(" ", "").toCharArray();
                     if (this.chars.length > 0) {
                         break;
@@ -108,9 +110,11 @@ class GuessGame {
                 }
             }
             case "preset" -> {
+                // runs until the input is valid
                 while (true) {
                     System.out.print("Preset the code to a specific sequence (only for next game), leave empty to reset: ");
                     this.code = sc.nextLine();
+                    // if the entered code is not empty, use the new code for code length, otherwise keep the previous value
                     if (!this.code.isEmpty()) {
                         this.codeLength = this.code.length();
                     }
@@ -122,6 +126,7 @@ class GuessGame {
                 }
             }
             case "max tries" -> {
+                // runs until the input is valid
                 while (true) {
                     System.out.print("Change the maximum number of tries to (current is " + this.maxTries + "): ");
                     this.maxTries = readNumber();
@@ -136,9 +141,11 @@ class GuessGame {
         System.out.println("Applied changes!");
     }
 
+    // main gameplay loop
     void gameLoop() {
         int currentTry = 0;
         generateCode();
+        // clears the history
         this.history = "";
 
         System.out.println("Programmed by Hell Bjoern Felix");
@@ -185,6 +192,7 @@ class GuessGame {
                         int index = new Random().nextInt(this.codeLength);
                         String out = ".".repeat(index) + this.code.charAt(index) + ".".repeat(this.codeLength - index - 1);
 
+                        // add buy command to history
                         this.history += (this.maxTries - currentTry) + ">!buy\n" + out + "\n";
                         System.out.println(out);
                         currentTry += 5;
@@ -233,11 +241,13 @@ class GuessGame {
             }
             currentTry += 1;
 
+            // get the judgement string consisting of the Xs and -'
             String judgement = compareInputCode(input);
+            // add last input to history
             this.history += (this.maxTries - currentTry) + ">" + input + " " + judgement + "\n";
             System.out.println(judgement);
 
-            // if the resulting judgement is as long as the code has to be and only consists of Xs we trigger the win condition
+            // if the resulting judgement is as long as the code and only consists of Xs we trigger the win condition
             if (judgement.length() == this.codeLength && judgement.replace("X", "").length() == 0) {
                 System.out.println("You guessed the code in " + currentTry + " tries!");
                 this.code = "";
@@ -298,13 +308,13 @@ class GuessGame {
         }
     }
 
+    // reads from input until it can be parsed into a number
     int readNumber() {
         while (true) {
             try {
-                int input = Integer.parseInt(sc.nextLine());
-                return input;
+                return Integer.parseInt(sc.nextLine());
             } catch (Exception e) {
-                System.out.println("Not a number, try againa");
+                System.out.println("Not a number, try again");
             }
         }
     }
